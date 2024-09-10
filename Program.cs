@@ -3,8 +3,8 @@ using Azure.AI.OpenAI;
 using OpenAI.Chat;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string? endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? "";
+string? key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY") ?? "";
 
 AzureOpenAIClient azureClient = new(
 		    new Uri(endpoint),
@@ -33,11 +33,11 @@ bool doNotExit = true;
 while (doNotExit) {
 
 	// Type your username and press enter
-	Console.WriteLine("\n\nChat:");
+	Console.WriteLine("\n\nChat (type 'Exit' to exit):");
 
-	string chatString = Console.ReadLine();
+	string? chatString = Console.ReadLine() ?? "exit";
 
-	if (chatString.Contains("exit")) {
+	if (chatString.ToLower().Contains("exit")) {
 		doNotExit = false;
 	}
 	else
