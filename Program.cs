@@ -30,9 +30,9 @@ await foreach(var chatUpdate in chatUpdates) {
 
 bool doNotExit = true;
 
+// Loop until we receive the exit command.
 while (doNotExit) {
 
-	// Type your username and press enter
 	Console.WriteLine("\n\nChat (type 'Exit' to exit):");
 
 	string? chatString = Console.ReadLine() ?? "exit";
