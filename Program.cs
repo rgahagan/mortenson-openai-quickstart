@@ -15,7 +15,7 @@ ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
 var chatUpdates = chatClient.CompleteChatStreamingAsync(
 	[
-		new SystemChatMessage("You are a knowledgable technical assistant to a construction company CIO.")
+		new SystemChatMessage("You are a knowledegable technical assistant to a construction company CIO.")
 	]);
 
 await foreach(var chatUpdate in chatUpdates) {
